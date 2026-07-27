@@ -1,11 +1,11 @@
 # Microserviço de Sumarização de Texto
 
-Este repositório contém um microserviço RESTful que recebe textos longos e retorna um resumo gerado por uma API de LLM (Gemini). É um projeto de consolidação com o mesmo padrão da Unidade 2 (classificação de feedbacks), mas adaptado ao novo caso de uso.
+Este repositório contém um microserviço RESTful que recebe textos longos e retorna um resumo gerado pela OpenAI. É um projeto de consolidação com o mesmo padrão da Unidade 2 (classificação de feedbacks), mas adaptado ao novo caso de uso.
 
 ## 🚀 Como rodar
 
-1. **Pegue a sua chave API do Gemini**:
-   basta acessar no site https://aistudio.google.com/.
+1. **Crie uma chave de API da OpenAI**:
+   acesse https://platform.openai.com/api-keys.
 
 2. **Instale dependências** (na raiz do projeto):
 
@@ -17,7 +17,7 @@ Este repositório contém um microserviço RESTful que recebe textos longos e re
 
    ```bash
    cp .env.example .env
-   # Depois de criar o arquivo .env, coloque a sua chave API Gemini
+   # Depois de criar o arquivo .env, coloque a sua chave API da OpenAI
    ```
 
 4. **Executar em modo de desenvolvimento**:
@@ -58,7 +58,7 @@ Este repositório contém um microserviço RESTful que recebe textos longos e re
   "summary": "Resumo gerado pela IA.",
   "meta": {
     "maxSentences": 3,
-    "model": "gemini",
+    "model": "openai",
     "characters": 1200
   }
 }
@@ -79,7 +79,7 @@ Resposta esperada:
   "summary": "O aprendizado de máquina é um subcampo da inteligência artificial que permite aos computadores aprender a partir de dados, sendo amplamente utilizado em diversas áreas da tecnologia atual.",
   "meta": {
     "maxSentences": 1,
-    "model": "gemini",
+    "model": "openai",
     "characters": 213
   }
 }
@@ -94,7 +94,7 @@ ativ-02-03-2026/
 │   ├── routes/
 │   │   └── summarize.ts   # rota /sumarizar
 │   ├── services/
-│   │   └── aiService.ts   # chamada à Gemini
+│   │   └── aiService.ts   # chamada à OpenAI
 │   └── schemas/
 │       └── validation.ts  # validação Zod
 ├── .env.example
@@ -106,7 +106,7 @@ ativ-02-03-2026/
 ## ✅ O que foi feito no projeto
 
 - API funcionando com validação e tratamento de erros
-- Integração com Gemini (via @google/genai)
+- Integração com OpenAI (via SDK oficial `openai`)
 - Resposta estruturada com metadados
 - Projeto limpo e documentado
 - `.env.example` fornecido

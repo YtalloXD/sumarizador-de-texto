@@ -15,7 +15,7 @@ router.post("/sumarizar", async (req: Request, res: Response) => {
       summary,
       meta: {
         maxSentences: sentencesCount,
-        model: "gemini",
+        model: "openai",
         characters: text.length,
       },
     });

@@ -7,10 +7,10 @@ import summarizeRouter from "./routes/summarize.js";
 
 dotenv.config();
 
-// mostrar se a chave Gemini está disponível (comprimento mascarado por segurança)
-const rawKey = process.env.GEMINI_API_KEY || "";
+// mostrar se a chave OpenAI está disponível (comprimento mascarado por segurança)
+const rawKey = process.env.OPENAI_API_KEY || "";
 console.log(
-  "GEMINI_API_KEY present:",
+  "OPENAI_API_KEY present:",
   rawKey.length > 0 ? "*".repeat(Math.min(4, rawKey.length)) + "..." : "não",
 );
 
@@ -22,7 +22,7 @@ app.use(express.json({ limit: "1mb" }));
 app.use("/", summarizeRouter);
 
 const PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
-const MODEL = process.env.GEMINI_MODEL || "gemini-2.5-flash";
+const MODEL = process.env.OPENAI_MODEL || "gpt-4o-mini";
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT} (model=${MODEL})`);
